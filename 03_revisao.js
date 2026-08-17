@@ -30,4 +30,9 @@ console.log ("Salário com adicional noturno: R$"+salario)
 coetna
 edfsd
 
-sda*/
+sda
+ ___
+|   |
+|   |
+|___|
+*/
