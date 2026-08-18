@@ -107,7 +107,7 @@ Mostre na tela o salário atual e o novo salário.
 let salario = 2500
 let aumento = 500
 let inss = 250
-let novo_salario = salario + aumento + inss
+let novo_salario = salario + aumento - inss
 
 console.log("O salário atual é de: R$"+salario+". \n"+"O novo salário será de: R$"+novo_salario+"\n")
 
@@ -174,8 +174,8 @@ Exemplo:
 
 */
 let hora = 13
-let minuto = 780
-let segundo = 46800
+let minuto = hora * 60
+let segundo = hora * 3600
 
 console.log("Hora = "+hora+". Minutos = "+minuto+". Segundos = "+segundo+". \n")
 
