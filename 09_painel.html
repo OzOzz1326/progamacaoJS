@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel</title>
+</head>
+<body>
+    
+    <div id="painelLogin" style="display: block;">
+        <h1>Login</h1>
+        <form>
+            <p>Digite seu usuário:</p>
+            <input id="inputUser"/>
+            <p>Digite sua senha:</p>
+            <input id="inputSenha" type="password" />
+            <br/><br/>
+        </form>
+        <button onclick="autenticar()">Entrar</button>
+    </div>
+
+    <div id="painelAdministrativo" style="display: none;">
+        <h1>Painel Administrativo</h1>
+        <p>Você está logado como <strong>administador</strong>.</p>
+        <button onclick="logout()">Sair da conta</button>
+    </div>
+
+    <script>
+        verificaLogin()
+
+        function verificaLogin(){
+            let autenticado = localStorage.getItem("autenticado")
+
+            if(autenticado == 1){
+                document.getElementById("painelAdministrativo").style.display = "block"
+                document.getElementById("painelLogin").style.display = "none"
+            }
+        }
+
+        function autenticar(){
+            let usuario = document.getElementById("inputUser").value
+            let senha = document.getElementById("inputSenha").value
+            
+            if(usuario.trim().length < 3){
+                alert("Usuário incorreto. Verifique e tente novamente")
+                return
+            }
+            if(senha.length == 0){
+                alert("Senha incorreta. Verifique e tente novamente")
+                return
+            }
+            if(usuario != "administrador"){
+                alert("Usuário incorreto")
+                return
+            }
+            if(senha != "123123"){
+                alert("Senha incorreto")
+                return
+            }
+
+            localStorage.setItem("autenticado", 1)
+            
+            document.getElementById("painelAdministrativo").style.display = "block"
+            document.getElementById("painelLogin").style.display = "none"
+        }
+
+        function logout(){
+            localStorage.removeItem("autenticado")
+
+            document.getElementById("painelAdministrativo").style.display = "none"
+            document.getElementById("painelLogin").style.display = "block"
+        }
+    </script>
+
+</body>
+</html>

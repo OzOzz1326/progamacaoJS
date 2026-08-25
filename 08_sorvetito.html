@@ -7,6 +7,7 @@
 </head>
 <body>
     
+    <button><a href="./09_painel.html"></a></button>
     <h1>Conradito Sorvetito</h1>
     <p>Você tem 💲<strong id="textoDinheiro"> 0</strong></p>
 
@@ -20,16 +21,28 @@
         <li>Marca Gourmet - 💲 50.000 <button>COMPRAR</button></li>
     </ul>
 
+    <p>Entre com uma conta para ganhar 💲 1.000 <button onclick="resgatarRecompensa()">Resgatar recompensa</button></p>
+
     <script>
+        
         let dinheiro = 0
         let dinheiroPorClique = 1
         let custoCarrinhoSorvete = 25
-    
+        
+        function resgatarRecompensa(){
+            if(localStorage.getItem("autenticado")==1){
+                alert("Recompensa concedida")
+                dinheiro += 1000
+                document.getElementById("textoDinheiro").innerHTML = dinheiro
+
+            }else{
+                alert("Você deve fazer login para continuar...")
+            }
+        }
         function venderSorvete(){
           dinheiro += dinheiroPorClique
           document.getElementById("textoDinheiro").innerHTML = dinheiro
         }
-
         function carrinhoSorvete(){
             if(dinheiro < custoCarrinhoSorvete){
                 alert("Dinheiro insuficiente...")
