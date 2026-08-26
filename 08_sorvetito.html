@@ -6,8 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <button><a href="./09_painel.html"></a></button>
+    <a href="./09_painel.html"><button>Sair</button></a>
     <h1>Conradito Sorvetito</h1>
     <p>Você tem 💲<strong id="textoDinheiro"> 0</strong></p>
 
@@ -29,16 +28,23 @@
         let dinheiroPorClique = 1
         let custoCarrinhoSorvete = 25
         
-        function resgatarRecompensa(){
-            if(localStorage.getItem("autenticado")==1){
-                alert("Recompensa concedida")
-                dinheiro += 1000
-                document.getElementById("textoDinheiro").innerHTML = dinheiro
+       function resgatarRecompensa(){
+            if(localStorage.getItem("autenticado") == 1){
 
-            }else{
-                alert("Você deve fazer login para continuar...")
-            }
+            if(localStorage.getItem("recompensaResgatada") == 1){
+            alert("Você já resgatou essa recompensa antes!")
+        } else {
+            alert("Recompensa concedida!")
+            dinheiro += 1000
+            document.getElementById("textoDinheiro").innerHTML = dinheiro
+            
+            localStorage.setItem("recompensaResgatada", 1)
         }
+        } else {
+        alert("Você deve fazer login para continuar...")
+        }
+    }
+        
         function venderSorvete(){
           dinheiro += dinheiroPorClique
           document.getElementById("textoDinheiro").innerHTML = dinheiro

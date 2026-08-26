@@ -11,6 +11,7 @@ let idade = prompt("Digite sua idade: ")
 >= maior igual
 <= menor igual
 != diferente
++= acumulo
 */
 
 if(idade >= 18){
